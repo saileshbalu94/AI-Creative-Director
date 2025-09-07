@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Screen } from '../types';
+import HomeIcon from './icons/HomeIcon';
 
 interface Step {
   name: string;
@@ -47,16 +48,20 @@ const ProgressStepper: React.FC<ProgressStepperProps> = ({ steps, currentScreen,
                                         }`}
                                     >
                                         {isCompleted ? (
-                                            <svg className="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                                <path fillRule="evenodd" d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.454-12.68a.75.75 0 011.04-.208z" clipRule="evenodd" />
-                                            </svg>
+                                            stepIdx === 0 ? (
+                                                <HomeIcon className="w-6 h-6 text-white" />
+                                            ) : (
+                                                <svg className="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path fillRule="evenodd" d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.454-12.68a.75.75 0 011.04-.208z" clipRule="evenodd" />
+                                                </svg>
+                                            )
                                         ) : (
                                             <span className={`${
                                                 isCurrent 
                                                     ? 'text-primary-DEFAULT' 
                                                     : step.isClickable ? 'text-gray-500 group-hover:text-gray-900' : 'text-gray-400'
                                             }`}>
-                                                {`0${stepIdx + 1}`}
+                                                { stepIdx === 0 ? <HomeIcon className="w-6 h-6" /> : `0${stepIdx}` }
                                             </span>
                                         )}
                                     </span>

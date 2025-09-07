@@ -7,7 +7,6 @@ import InputPage from './components/InputPage';
 import ConceptPage from './components/ConceptPage';
 import OutputPage from './components/OutputPage';
 import { generateConcepts, generateFinalCreative } from './services/geminiService';
-import LogDownloader from './components/LogDownloader';
 import ProgressStepper from './components/ProgressStepper';
 
 const App: React.FC = () => {
@@ -114,6 +113,7 @@ const App: React.FC = () => {
   };
 
   const steps = [
+    { name: 'Home', screen: Screen.Landing, isClickable: true },
     { name: 'Requirements', screen: Screen.Input, isClickable: true },
     { name: 'Concept', screen: Screen.Concept, isClickable: state.concepts.length > 0 || state.screen >= Screen.Concept },
     { name: 'Output', screen: Screen.Output, isClickable: state.finalImage !== null || state.screen === Screen.Output },
@@ -133,7 +133,6 @@ const App: React.FC = () => {
       <main className="flex-grow flex flex-col">
         {renderScreen()}
       </main>
-      <LogDownloader />
     </div>
   );
 };
