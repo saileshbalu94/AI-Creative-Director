@@ -1,0 +1,5 @@
+{
+  "name": "AI Creative Director",
+  "description": "An AI-powered creative director that generates professional advertisements from product photos in minutes, leveraging Google's Gemini API for high-quality creative concepts and final ad visuals.",
+  "requestFramePermissions": []
+}
